@@ -158,9 +158,9 @@ def skipgram(currentCenterWord, windowSize, outsideWords, word2Ind,
     for outWord in outsideWords:
         outWordIndex = word2Ind[outWord]
         curLoss,curGradCenterVec,curGradOutsideVecs = word2vecLossAndGradient(centerWordVector,outWordIndex,outsideVectors,dataset)
-        loss = loss + curLoss
+        loss += curLoss
         gradCenterVecs[centerWordIndex] += curGradCenterVec
-        gradOutsideVectors = gradOutsideVectors + curGradOutsideVecs
+        gradOutsideVectors += curGradOutsideVecs
     ### END YOUR CODE
 
     return loss, gradCenterVecs, gradOutsideVectors
